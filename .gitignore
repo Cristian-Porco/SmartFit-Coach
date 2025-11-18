@@ -4,6 +4,15 @@
 # Dependencies
 node_modules
 
+# Backend - Python virtual environment
+backend/venv
+
+# Python cache
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+
 # Environment variables
 .env
 .env.*

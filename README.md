@@ -1,6 +1,24 @@
 # SmartFit Coach
 
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)
+![Django](https://img.shields.io/badge/Django-5.0-green?logo=django&logoColor=white)
+![SvelteKit](https://img.shields.io/badge/SvelteKit-2.0-orange?logo=svelte&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue?logo=postgresql&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-AI-purple?logo=chainlink&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Status](https://img.shields.io/badge/status-active-success.svg)
+
 A web application that leverages AI and machine learning to create personalized workout and nutrition plans. Built with Django, PostgreSQL, LangChain, LLM, and SvelteKit to ensure high performance, a modern user experience, and a scalable, secure architecture.
+
+## Overview
+
+In today's context, where physical well-being and nutrition play an increasingly central role in people's lives, technology has enabled an innovative approach to managing training and diet. The growing adoption of artificial intelligence (AI) has opened new opportunities to improve the effectiveness and personalization of fitness and nutrition programs, meeting the needs of users with diverse goals and requirements.
+
+**SmartFit Coach** was created with the intent to revolutionize how people manage their training and nutrition journey. It is a management application designed for gyms, personal trainers, and individual users, combining advanced monitoring tools with personalized suggestions to optimize performance and overall well-being.
+
+Thanks to AI integration, SmartFit Coach can analyze data related to physical parameters, progress, and eating habits, offering adaptive workout routines and nutritional plans. The goal is to provide constant and dynamic support, improving motivation and maximizing results.
+
+This document explores in detail the application's features, the benefits for different types of users, and the technologies that make it possible. With a data-driven and personalization-focused approach, SmartFit Coach positions itself as an essential ally for anyone looking to improve their fitness intelligently and effectively.
 
 ## Features
 

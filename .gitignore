@@ -1,0 +1,27 @@
+# IDEs
+.idea
+
+# Dependencies
+node_modules
+
+# Environment variables
+.env
+.env.*
+!.env.example
+!.env.test
+
+# Frontend - Output
+.output
+.vercel
+.netlify
+.wrangler
+/.svelte-kit
+/build
+
+# Frontend - Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# OS
+.DS_Store
+Thumbs.db

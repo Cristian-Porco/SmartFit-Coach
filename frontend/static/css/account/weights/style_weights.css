@@ -1,0 +1,78 @@
+.icon-sidebar { display: flex; }
+.sidebar { display: none; }
+.main-content { min-width: 800px; max-width: 800px; }
+
+.areaChartZone {
+    height: 40vh;
+    background: linear-gradient(to right, #4d4d4d, #b3b3b3);
+    padding: 25px;
+    margin: 25px 0;
+    margin-bottom: 40px;
+    border-radius: 25px;
+}
+.areaChartZone h3 { color: white; font-size: 36px; }
+.areaChartZone p { color: white; }
+
+.form-container, .form-group { display: flex; gap: 15px; }
+.form-container { flex-direction: column; }
+.form-group { flex-wrap: wrap; }
+.input-container {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.weight-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    transition: transform 0.2s;
+}
+.weight-item:first-child { font-size: 50px !important; }
+.weight-item:first-child .details .date { font-size: 16px; }
+.weight-item .details { display: block; justify-content: flex-start; align-items: center; }
+.weight-item .details .weight { margin-right: 10px; font-weight: bold; }
+.weight-item .details .date { color: #777; }
+.weight-item .buttons { display: flex; gap: 10px; }
+.weight-item .buttons button {
+    padding: 10px 15px;
+    color: white;
+    cursor: pointer;
+    height: 100%;
+    margin: 0
+}
+.weight-item .buttons .delete-btn { background: red; }
+.weight-item .buttons .delete-btn:hover { background: #a62f28; }
+.weight-item:last-child { border-bottom: none; }
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(2px);
+}
+.popup {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    width: 400px;
+}
+.popup h3 { margin-bottom: 15px; }
+.popup .form-group { display: flex; gap: 0px; flex-direction: column; }
+.popup #cancel-edit { margin-bottom: 0px; }
+
+@media (max-width: 768px) {
+    .main-content { width: 100%; min-width: 100%; }
+    .form-group { flex-direction: column; }
+}

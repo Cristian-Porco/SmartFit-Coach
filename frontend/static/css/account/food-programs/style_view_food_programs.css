@@ -1,0 +1,64 @@
+.icon-sidebar { display: flex; }
+.sidebar { display: none; }
+.main-content { width: 100%; min-width: 100%; }
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+}
+.container div { flex: 1; text-align: center; }
+.container div:nth-child(1) { text-align: left; }
+.container div:nth-child(2) { text-align: right; }
+
+table { width: 100%; border-collapse: collapse; }
+th, td {
+    padding: 8px;
+    text-align: center;
+    border-top: 1px solid #cfcfcf;
+    border-bottom: 1px solid #cfcfcf;
+}
+th { border: 1px solid #cfcfcf; }
+#detailsFoodPlanMobile { background-color: #e8e8e8; display: none; }
+td:first-child { border-left: 1px solid #cfcfcf; }
+td:last-child { border-right: 1px solid #cfcfcf; }
+th, .total-name { background-color: #e8e8e8; }
+.header-title { font-size: 18px; font-weight: bold; }
+.header-limits { font-size: 14px; }
+.separator { border: 1px solid #fff !important; }
+.meal-name { font-size: 18px; font-weight: bold; background-color: #f4f4f4; }
+.name-column { width: 20%; text-align: left; font-weight: bold; }
+.grams-column { width: 120px; font-weight: bold; font-size: 18px; }
+input[type="checkbox"] { transform: scale(1.5); display: block; margin: auto; }
+.separator-row { height: 20px; }
+.responsive-table { width: 100%; border-collapse: collapse; }
+
+@media screen and (max-width: 768px) {
+    .container { flex-direction: column; align-items: center; }
+
+    .responsive-table thead { display: none; }
+    .responsive-table tbody,
+    .responsive-table tr,
+    .responsive-table td {
+        display: block; width: 100%; border: 0px;
+    }
+    .responsive-table tr { margin-bottom: 10px; border: 1px solid #ddd; }
+    .responsive-table .separator-row { display: none; }
+    .responsive-table td {
+        text-align: left;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+    }
+    .responsive-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        flex: 1;
+        padding-right: 10px;
+    }
+    .name-column { display: none !important; }
+    .grams-column { font-size: 30px; }
+    #detailsFoodPlanMobile { display: block; }
+}

@@ -1,0 +1,79 @@
+.icon-sidebar {
+    display: flex;
+}
+.sidebar {
+    display: none;
+}
+.main-content {
+    min-width: 800px;
+    max-width: 800px;
+}
+.gym-programs-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    transition: transform 0.2s;
+}
+.gym-programs-item .details .average {
+    margin-right: 10px;
+    font-weight: bold;
+}
+.gym-programs-item .buttons {
+    display: flex;
+    gap: 10px;
+}
+.gym-programs-item .buttons button {
+    padding: 10px 15px;
+    color: white;
+    cursor: pointer;
+    height: 44px;
+    margin: 0
+}
+.gym-programs-item .buttons .delete-btn {
+    background: red;
+}
+.gym-programs-item .buttons .delete-btn:hover {
+    background: #a62f28;
+}
+.gym-programs-item:last-child {
+    border-bottom: none;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(2px);
+}
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 700px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+.modal-content>h2 { margin-bottom: 15px; }
+.modal-content>h3 { margin: 8px 0; }
+.modal-container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        width: 100%;
+        min-width: 100%;
+    }
+}

@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<link rel="stylesheet" href="%sveltekit.assets%/css/style_base.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&display=swap">
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div class="icon-sidebar">
+			<a href="/account"><div
+					class="icon-item"
+					id="account-icon-item">
+				<img id="profile_picture"
+					 class="profile-avatar"
+					 src="http://127.0.0.1:8000/media/profile_pics/default.jpg"
+					 alt="Avatar">
+			</div></a>
+			<a href="/account/weights"><div
+					class="icon-item"
+					id="weight-icon-item">
+				<i class="material-symbols-outlined">weight</i>
+			</div></a>
+			<a href="/account/body-measurements"><div
+					class="icon-item"
+					id="body-measurements-icon-item">
+				<i class="material-symbols-outlined">body_fat</i>
+			</div></a>
+			<a href="/account/food-programs"><div
+					class="icon-item"
+					id="food-program-icon-item">
+				<i class="material-symbols-outlined">restaurant</i>
+			</div></a>
+			<a href="/account/gym-programs"><div
+					class="icon-item"
+					id="gym-program-icon-item">
+				<i class="material-symbols-outlined">exercise</i>
+			</div></a>
+			<a href="/logout"><div class="icon-item">
+				<i class="material-icons">logout</i>
+			</div></a>
+		</div>
+		<div class="sidebar">
+			<a href="/#home"><div class="menu-item">
+				<i class="material-icons">home</i> <p>Home</p>
+			</div></a>
+			<a href="/#chi-siamo"><div class="menu-item">
+				<i class="material-icons">info</i> <p>Chi siamo</p>
+			</div></a>
+			<a href="/#contatti"><div class="menu-item">
+				<i class="material-icons">mail</i> <p>Contatti</p>
+			</div></a>
+			<div class="menu-separator"></div>
+			<a href="/login" id="login-icon" style="display: none"><div class="menu-item">
+				<i class="material-icons">login</i> <p>Accedi</p>
+			</div></a>
+			<a href="/signup" id="signup-icon" style="display: none"><div class="menu-item">
+				<i class="material-icons">person_add</i> <p>Registrati</p>
+			</div></a>
+			<a href="/account" id="account-icon"  style="display: none"><div class="menu-item">
+				<i class="material-icons">person</i> <p>Account</p>
+			</div></a>
+		</div>
+		<div class="content">
+			<div class="header">
+				<h1><a href="/">SmartFit Coach</a></h1>
+			</div>
+			<div class="main-content">
+				%sveltekit.body%
+			</div>
+			<div class="footer">
+				<p>&copy; 2025 SmartFit Coach. Tutti i diritti riservati.</p>
+			</div>
+		</div>
+	</body>
+	<script>
+		function toggleClassByPathEquals({
+											 substring,
+											 targetId,
+											 className,
+											 removeFromIds = []
+										 }) {
+			const targetEl = document.getElementById(targetId);
+
+			if (targetEl) {
+				targetEl.classList.add(className);
+			}
+
+			// Rimuove la classe da tutti gli altri elementi
+			removeFromIds.forEach(id => {
+				if (id !== targetId) {
+					const el = document.getElementById(id);
+					if (el) {
+						el.classList.remove(className);
+					}
+				}
+			});
+		}
+
+		function toggleClassByPathContains({
+											   substring,
+											   targetId,
+											   className,
+											   removeFromIds = []
+										   }) {
+			const path = window.location.pathname;
+
+			const shouldApply = path.includes(substring);
+			const targetEl = document.getElementById(targetId);
+
+			if (shouldApply && targetEl) {
+				targetEl.classList.add(className);
+			}
+
+			// Rimuove la classe da tutti gli altri elementi
+			removeFromIds.forEach(id => {
+				if (id !== targetId) {
+					const el = document.getElementById(id);
+					if (el) {
+						el.classList.remove(className);
+					}
+				}
+			});
+		}
+
+		function replaceAllCommasWithDots(str) {
+			return str.replace(/,/g, '.');
+		}
+
+		function formatDateForInput(dateStr) {
+			let [day, month, year] = dateStr.split("/");
+			return `${year}-${month}-${day}`; // Restituisce formato YYYY-MM-DD
+		}
+
+		function getCookie(name) {
+			const value = `; ${document.cookie}`;
+			const parts = value.split(`; ${name}=`);
+			if (parts.length === 2) return parts.pop().split(';').shift();
+		}
+
+		/**
+		 * Mostra un messaggio di errore temporaneo all'interno di un elemento HTML specifico.
+		 *
+		 * L'elemento di destinazione viene identificato tramite il suo `id` (di default `"error1"`).
+		 * Il messaggio viene visualizzato impostando `display: block` sull'elemento e assegnando
+		 * il testo al suo primo nodo figlio. Dopo 5 secondi, l'elemento viene nascosto nuovamente
+		 * e il testo viene svuotato.
+		 *
+		 * @param {string} message - Il messaggio di errore da mostrare all'utente.
+		 * @param {string} [elementId="error1"] - L'ID dell'elemento HTML in cui mostrare l'errore.
+		 */
+		function showMessage(message, elementId = "error1") {
+			const messageEl = document.getElementById(elementId);
+
+			if (messageEl) {
+				// Mostra l'errore
+				messageEl.style.display = "block";
+				messageEl.firstChild.textContent = message;
+
+				// Scroll animato verso l'elemento
+				messageEl.scrollIntoView({ behavior: "smooth", block: "center" });
+
+				// Nasconde l'errore dopo 5 secondi
+				setTimeout(() => {
+					messageEl.style.display = "none";
+					messageEl.firstChild.textContent = "";
+				}, 5000);
+			}
+		}
+	
+		const csrftoken = getCookie('csrftoken');
+	
+		if (csrftoken) {
+			fetch('http://127.0.0.1:8000/api/v1/data/detailsaccount/me/', {
+				headers: {
+					'Authorization': 'Token ' + csrftoken
+				}
+			})
+			.then(response => {
+				if (!response.ok) {
+					throw new Error('Errore nel recupero del profilo');
+				}
+				return response.json();
+			})
+			.then(data => {
+				const img = document.getElementById('profile_picture');
+				if (data.profile_picture) {
+					img.src = data.profile_picture;
+				}
+			});
+		}
+
+		document.addEventListener("DOMContentLoaded", function () {
+			const accountAvatar = document.querySelector(".header img");
+			const accountMenu = document.getElementById("accountMenu");
+
+			accountAvatar.addEventListener("click", function () {
+				accountMenu.style.display = accountMenu.style.display === "block" ? "none" : "block";
+			});
+
+			document.addEventListener("click", function (event) {
+				if (!accountAvatar.contains(event.target) && !accountMenu.contains(event.target)) {
+					accountMenu.style.display = "none";
+				}
+			});
+
+			const buttons = document.querySelectorAll(".form-container button");
+
+			buttons.forEach(button => {
+				button.addEventListener("mousedown", function () {
+					this.style.transform = "scale(0.95)";
+				});
+
+				button.addEventListener("mouseup", function () {
+					this.style.transform = "scale(1)";
+				});
+
+				button.addEventListener("mouseleave", function () {
+					this.style.transform = "scale(1)";
+				});
+			});
+		});
+	</script>
+</html>

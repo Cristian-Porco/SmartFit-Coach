@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+#container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.step {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.step.active {
+    display: flex;
+}
+
+.title-presentation {
+    text-align: center;
+}

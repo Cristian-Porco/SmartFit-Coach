@@ -20,6 +20,8 @@ Thanks to AI integration, SmartFit Coach can analyze data related to physical pa
 
 This document explores in detail the application's features, the benefits for different types of users, and the technologies that make it possible. With a data-driven and personalization-focused approach, SmartFit Coach positions itself as an essential ally for anyone looking to improve their fitness intelligently and effectively.
 
+**[Complete Thesis Documentation (Italian)](thesis.pdf)** - Detailed academic documentation of the project in Italian.
+
 ## Features
 
 - **AI-Powered Personalization**: Uses advanced language models to generate customized fitness and nutrition plans
